@@ -223,6 +223,7 @@ ambient_context                           u:object_r:ambient_context_service:s0
 anomaly_detector                          u:object_r:anomaly_detector_service:s0
 allowlist                                 u:object_r:allowlist_service:s0
 aoad                                      u:object_r:aoad_service:s0
+apipolicy                                 u:object_r:apipolicy_service:s0
 app_binding                               u:object_r:app_binding_service:s0
 app_function                              u:object_r:app_function_service:s0
 app_hibernation                           u:object_r:app_hibernation_service:s0
