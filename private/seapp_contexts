@@ -166,7 +166,8 @@ isSystemServer=true domain=system_server
 neverallow user=_sdksandbox domain=((?!sdk_sandbox).)*
 
 user=_app seinfo=platform name=com.android.traceur domain=traceur_app type=app_data_file levelFrom=all
-# Must come before the generic minTargetSdkVersion=37 seinfo=platform entry below.
+# Entries are matched in precedence order (see seapp_context_cmp()), not file order;
+# the name= selector here makes this entry win over the generic platform_app one.
 user=_app seinfo=platform name=app.ryannyui.apipolicy domain=apipolicy_app type=app_data_file levelFrom=all
 user=system seinfo=platform domain=system_app type=system_app_data_file
 user=system seinfo=platform isPrivApp=true name=com.android.DeviceAsWebcam domain=device_as_webcam type=system_app_data_file levelFrom=all

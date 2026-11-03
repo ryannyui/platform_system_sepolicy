@@ -8,6 +8,7 @@ untrusted_app_domain(apipolicy_app)
 # app_api_service, so grant the lookup explicitly.
 allow apipolicy_app apipolicy_service:service_manager find;
 
-# The service pushes oneway onPolicyChanged() callbacks back into this domain.
-binder_call(apipolicy_app, system_server)
-binder_call(system_server, apipolicy_app)
+# Binder IPC with system_server, in both directions and including the oneway
+# onPolicyChanged() callback, is already covered by the generic rules:
+# domain.te allows domain -> system_server:binder call, and system_server.te
+# has binder_call(system_server, appdomain).
