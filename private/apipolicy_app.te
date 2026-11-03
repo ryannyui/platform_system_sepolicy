@@ -1,0 +1,13 @@
+type apipolicy_app, domain;
+typeattribute apipolicy_app coredomain;
+
+app_domain(apipolicy_app)
+untrusted_app_domain(apipolicy_app)
+
+# The API policy service is a system_server service that is not part of
+# app_api_service, so grant the lookup explicitly.
+allow apipolicy_app apipolicy_service:service_manager find;
+
+# The service pushes oneway onPolicyChanged() callbacks back into this domain.
+binder_call(apipolicy_app, system_server)
+binder_call(system_server, apipolicy_app)
