@@ -18,6 +18,9 @@ set_prop(radio, ctl_rildaemon_prop)
 get_prop(radio, time_prop)
 
 allow radio mediametrics_service:service_manager find;
+# Runtime API policy: the telephony process evaluates policy scripts in system_server for the
+# synchronous cell getters. The service enforces a UID allowlist on top of this lookup.
+allow radio apipolicy_service:service_manager find;
 
 # allow telephony to access platform compat to log permission denials
 allow radio platform_compat_service:service_manager find;

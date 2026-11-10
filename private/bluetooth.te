@@ -88,6 +88,11 @@ hal_client_domain(bluetooth, hal_audio)
 
 read_runtime_log_tags(bluetooth)
 
+# Runtime API policy: the Bluetooth stack evaluates policy scripts in system_server before it
+# hands BLE scan results to an app. The service enforces a UID allowlist on top of this lookup.
+allow bluetooth apipolicy_service:service_manager find;
+
+
 ###
 ### Neverallow rules
 ###
